@@ -68,6 +68,8 @@ import LocalStorageAdapter from '../infra/LocalStorageAdapter'
 import { moneyInputFormat, moneyInputFormatToFloat } from '../utils/inputMoney'
 import TrashIcon from '../assets/trashIcon.vue'
 
+import productsMock from '../products-mock.json';
+
 export default {
   name: 'App',
   data() {
@@ -81,6 +83,9 @@ export default {
 
     if (products) {
       this.productsList = products;
+    } else {
+      storage.set("@ShopList/products", productsMock);
+      this.productsList = productsMock
     }
 
   },
